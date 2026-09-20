@@ -1,9 +1,9 @@
 # Lab 03 — Microsoft Foundry build (pro-code path)
 
 **Time budget:** 60 minutes (module 4)
-**Prereq:** Lab 01 complete (shared data layer), Lab 02 complete (you've seen what the agents are *supposed* to do), and the [Dataverse MCP custom-client registration](../../../reference-repo/docs/dataverse-mcp-custom-client.md) done once for your environment — the app-only auth this build uses won't get past the first MCP call without it.
+**Prereq:** Lab 01 complete (shared data layer), Lab 02 complete (you've seen what the agents are *supposed* to do), and the [Dataverse MCP custom-client registration](../../../reference-repo/docs/dataverse-mcp-custom-client.md) done once for your environment — the delegated (device-code) auth this build uses won't get past the first MCP call without it.
 **Authoritative prompts:** [`shared-assets/prompts/`](../../shared-assets/prompts/) — same files, used verbatim
-**Reference repo:** `reference-repo/pro-code/TimesheetAgent.Foundry/` in this same working tree (a standalone public repo is planned — see [`reference-design/repo-plan/repo-plan.md`](../../../reference-design/repo-plan/repo-plan.md) — but isn't live yet; clone/copy this monorepo for now).
+**Reference repo:** [`github.com/wezthecode/nordic-summit2026-agentic-workshop`](https://github.com/wezthecode/nordic-summit2026-agentic-workshop) — `reference-repo/pro-code/TimesheetAgent.Foundry/`. Clone that repo (not this internal working tree) to follow along.
 
 ## Goal
 
@@ -22,10 +22,11 @@ This is the pro-code half. Same MCPs, same prompts, same Dataverse schema — di
 
 ## Steps
 
-### 1. Open the reference repo
+### 1. Clone the reference repo
 
 ```bash
-cd reference-repo/pro-code/TimesheetAgent.Foundry
+git clone https://github.com/wezthecode/nordic-summit2026-agentic-workshop.git
+cd nordic-summit2026-agentic-workshop/reference-repo/pro-code/TimesheetAgent.Foundry
 ```
 
 ```
