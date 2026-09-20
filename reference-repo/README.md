@@ -1,43 +1,43 @@
-# Reference repo
+# Reference repo — staging area
 
-The buildable artifacts the workshop labs produce and use.
+This folder is a **staging area** for the public reference repo `agentic-timesheet-workshop` that attendees will clone on workshop day. Once stable, the contents of this folder get pushed to a standalone GitHub repo at `github.com/wezthecode/agentic-timesheet-workshop` and this folder gets retired.
+
+Structure tracks [`reference-design/repo-plan/repo-plan.md`](../reference-design/repo-plan/repo-plan.md).
 
 ```
 reference-repo/
-├── docs/                         # Setup guides + the real build history
-│   ├── dataverse-mcp-custom-client.md
-│   └── foundry-buildout-log.md
-├── low-code/                     # Copilot Studio notes (lab 02)
+├── low-code/                    # Copilot Studio solution exports (lab 02)
 │   └── README.md
 ├── pro-code/
-│   └── TimesheetAgent.Foundry/   # .NET 8 Microsoft Agent Framework SDK build (lab 03)
+│   └── TimesheetAgent.Foundry/  # .NET 10 Agent Framework SDK build (lab 03)
 │       ├── TimesheetAgent.Foundry.csproj
 │       ├── Program.cs
 │       ├── Agents/
 │       │   ├── OrchestratorAgent.cs
 │       │   ├── CalendarChildAgent.cs
 │       │   └── TimeEntryChildAgent.cs
-│       └── Mcp/
-│           ├── WorkIqCalendarMcpClient.cs
-│           ├── DataverseMcpClient.cs
-│           ├── BearerTokenHandler.cs
-│           └── ReconnectingMcpTool.cs
-└── eval/                         # Harness for lab 05
+│       ├── Mcp/
+│       │   ├── WorkIqCalendarMcpClient.cs
+│       │   └── DataverseMcpClient.cs
+│       └── Foundry/
+│           ├── agent.yaml
+│           └── README.md
+└── eval/                        # Harness for lab 05
+    ├── Eval.csproj
+    ├── Program.cs
+    └── Runners/
+        ├── CopilotStudioRunner.cs
+        └── FoundryRunner.cs
 ```
 
 ## Status
 
-`pro-code/TimesheetAgent.Foundry/` builds clean and runs as a local console app — verified
-end-to-end against live Work IQ Calendar MCP and live Dataverse, including a real write. It's not
-a hosted Foundry agent (see [`docs/foundry-buildout-log.md`](docs/foundry-buildout-log.md) for why,
-and what that distinction actually means in practice). Follow
-[`docs/dataverse-mcp-custom-client.md`](docs/dataverse-mcp-custom-client.md) for the one-time Entra
-setup lab 03 needs before it will run in your own tenant.
+Skeleton only — **not yet compilable**. The intent is that the `.csproj` + `Program.cs` files are scaffolded with TODO markers, then fleshed out during rehearsal week (week of 14 Sept 2026) once the Agent Framework SDK preview API has stabilised. Building it earlier than that means rewriting it later.
 
 ## What's intentionally absent
 
 - No plugins folder — workshop doesn't ship one
 - No Azure Functions folder — workshop doesn't ship one
 - No custom MCP server — both MCPs are first-party
-- No infrastructure-as-code — the pro-code build runs as a local console app, not a deployed
-  Azure resource; see `docs/foundry-buildout-log.md` for the reasoning
+- No infrastructure-as-code (Bicep/Terraform) — Foundry deployment is via `az foundry agent deploy` + `agent.yaml`, no separate infra
+- No `pipelines/` — GitHub Actions definitions are minimal and live at the repo root when the time comes

@@ -7,7 +7,7 @@
 
 ## Goal
 
-Rebuild the exact same orchestrator + 2 specialist agents from lab 02, but with the **.NET 8 Microsoft Agent Framework SDK**, calling the same **Foundry-hosted model** and the same two first-party MCPs. End state:
+Rebuild the exact same orchestrator + 2 specialist agents from lab 02, but with the **.NET 10 Microsoft Agent Framework SDK**, calling the same **Foundry-hosted model** and the same two first-party MCPs. End state:
 
 - Three agents defined in C#, sharing the same system prompts as lab 02 (loaded from `shared-assets/prompts/`)
 - Same two MCPs — Work IQ Calendar (preview), Dataverse (GA) — wired via the SDK's MCP client

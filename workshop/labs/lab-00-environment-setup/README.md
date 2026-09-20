@@ -9,7 +9,7 @@ Confirm every tool, licence, and subscription works **before** module 2 starts. 
 
 - A signed-in `pac` CLI pointing at your Power Platform dev environment
 - A signed-in `az` CLI pointing at the Azure subscription you'll deploy Foundry to
-- A working `dotnet` install on .NET 8
+- A working `dotnet` install on .NET 10
 - Confirmation that your account has an M365 Copilot licence assigned
 
 ## Steps
@@ -35,13 +35,13 @@ az account show
 
 Expected: your name + tenant + subscription ID.
 
-### 3. .NET 8
+### 3. .NET 10
 
 ```bash
 dotnet --version
 ```
 
-Expected: `8.x.y`. If you have multiple .NET SDKs, that's fine as long as 8 is present.
+Expected: `10.x.y`. If you have multiple .NET SDKs, that's fine as long as 10 is present. .NET 10 is the current LTS (supported until November 2028) — .NET 8's LTS support ends November 2026, so this build deliberately targets 10, not 8.
 
 ### 4. M365 Copilot licence check
 

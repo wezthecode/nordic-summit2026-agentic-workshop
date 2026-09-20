@@ -18,7 +18,7 @@ metadata:
 spec:
   runtime:
     type: dotnet
-    framework: net8.0
+    framework: net10.0
     entryAssembly: TimesheetAgent.Foundry.dll
   agents:
     - name: orchestrator

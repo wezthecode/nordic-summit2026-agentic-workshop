@@ -4,7 +4,7 @@ Welcome. This page is your **only required reading** before the workshop. If you
 
 ## What you're building
 
-A multi-agent timesheet system. A user says "log my time for this week" and an orchestrator agent delegates to two specialist agents — one reads the user's calendar, one writes time entries to Dataverse. You'll build the same thing **twice**: once low-code in **Copilot Studio**, once pro-code in **C# (.NET 8) with the Microsoft Agent Framework SDK** deployed to **Microsoft Foundry**.
+A multi-agent timesheet system. A user says "log my time for this week" and an orchestrator agent delegates to two specialist agents — one reads the user's calendar, one writes time entries to Dataverse. You'll build the same thing **twice**: once low-code in **Copilot Studio**, once pro-code in **C# (.NET 10) with the Microsoft Agent Framework SDK** deployed to **Microsoft Foundry**.
 
 Both share the same Dataverse table, the same model-driven app, and the same two first-party Microsoft MCP servers (**Dataverse MCP** and **Work IQ Calendar MCP**).
 
@@ -19,7 +19,7 @@ Tick all of these before the workshop. If you can't get one of them, email me (L
 
 ### Local tooling
 - [ ] **VS Code** (latest)
-- [ ] **.NET 8 SDK** installed (`dotnet --version` returns 8.x)
+- [ ] **.NET 10 SDK** installed (`dotnet --version` returns 10.x)
 - [ ] **Azure CLI** signed in (`az login`)
 - [ ] **Power Platform CLI** (`pac auth list` works)
 - [ ] **Git**
