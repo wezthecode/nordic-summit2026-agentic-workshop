@@ -8,9 +8,11 @@ Single source of truth for things both the Copilot Studio build (lab 02) and the
 shared-assets/
 ├── README.md                       ← you are here
 ├── dataverse-schema.md             ← THE schema spec (publisher prefix, tables, columns, role)
-├── solution/                       ← solution exports — generated, not hand-edited
-│   ├── AgenticTimesheet_managed.zip
-│   └── AgenticTimesheet_unmanaged.zip
+├── AgenticTimesheet_managed.zip        ← Dataverse solution: tables, security role, model-driven app
+├── AgenticTimesheet_unmanaged.zip
+├── AgenticTimesheetAgents_managed.zip  ← Copilot Studio solution: the 3 agents (orchestrator,
+├── AgenticTimesheetAgents_unmanaged.zip  Calendar, Time-Entry), separate so you can import just
+│                                          the agents without touching the Dataverse layer
 ├── sample-data/
 │   └── projects.csv                ← 3 seed rows for cre_project
 ├── prompts/
