@@ -40,7 +40,7 @@ Done **before** the rehearsal run so the rehearsal isn't blocked on Microsoft pr
 | 1.2 | `pac org list` | Lists at least the dev environment | ☐ |
 | 1.3 | `az login` then `az account show` | Returns the correct tenant + subscription | ☐ |
 | 1.4 | `git clone https://github.com/wezthecode/agentic-timesheet-workshop` | Clone succeeds, repo at expected layout | ☐ |
-| 1.5 | `dotnet build reference-repo/pro-code/TimesheetAgent.Foundry` | Restores + compiles cleanly (warnings ok) | ☐ |
+| 1.5 | `dotnet build reference-repo/pro-code/net10/TimesheetAgent.Foundry` | Restores + compiles cleanly (warnings ok) | ☐ |
 | 1.6 | VS Code recommended extensions install prompt fires + completes | All 4 extensions report installed | ☐ |
 
 **Blocker if:** 1.1, 1.3, or 1.5 fail. Everything else can be hand-held during the lab.
@@ -96,7 +96,7 @@ Done **before** the rehearsal run so the rehearsal isn't blocked on Microsoft pr
 
 | # | Step | Expected | Pass |
 |---|------|----------|------|
-| 4.1 | `dotnet build reference-repo/pro-code/TimesheetAgent.Foundry` | Compiles with rehearsal-week implementations in place | ☐ |
+| 4.1 | `dotnet build reference-repo/pro-code/net10/TimesheetAgent.Foundry` | Compiles with rehearsal-week implementations in place | ☐ |
 | 4.2 | Local smoke test: `dotnet run -- --scenario s01` | Prints draft entries matching scenario expectation | ☐ |
 | 4.3 | `dotnet publish -c Release` succeeds | Bin folder contains `TimesheetAgent.Foundry.dll` | ☐ |
 | 4.4 | `az foundry agent deploy --file Foundry/agent.yaml` | Returns endpoint URL, status = Running | ☐ |

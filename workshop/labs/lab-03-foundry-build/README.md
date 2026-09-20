@@ -3,7 +3,7 @@
 **Time budget:** 60 minutes (module 4)
 **Prereq:** Lab 01 complete (shared data layer), Lab 02 complete (you've seen what the agents are *supposed* to do), and the [Dataverse MCP custom-client registration](../../../reference-repo/docs/dataverse-mcp-custom-client.md) done once for your environment — the delegated (device-code) auth this build uses won't get past the first MCP call without it.
 **Authoritative prompts:** [`shared-assets/prompts/`](../../shared-assets/prompts/) — same files, used verbatim
-**Reference repo:** [`github.com/wezthecode/nordic-summit2026-agentic-workshop`](https://github.com/wezthecode/nordic-summit2026-agentic-workshop) — `reference-repo/pro-code/TimesheetAgent.Foundry/`. Clone that repo (not this internal working tree) to follow along.
+**Reference repo:** [`github.com/wezthecode/nordic-summit2026-agentic-workshop`](https://github.com/wezthecode/nordic-summit2026-agentic-workshop) — `reference-repo/pro-code/net10/TimesheetAgent.Foundry/`. Clone that repo (not this internal working tree) to follow along. This lab was originally advertised on .NET 8; identical code targeting that framework is preserved at `reference-repo/pro-code/net8/TimesheetAgent.Foundry/` if you specifically need it, but .NET 10 (the current LTS) is what's actively maintained and what these steps assume.
 
 ## Goal
 
@@ -26,7 +26,7 @@ This is the pro-code half. Same MCPs, same prompts, same Dataverse schema — di
 
 ```bash
 git clone https://github.com/wezthecode/nordic-summit2026-agentic-workshop.git
-cd nordic-summit2026-agentic-workshop/reference-repo/pro-code/TimesheetAgent.Foundry
+cd nordic-summit2026-agentic-workshop/reference-repo/pro-code/net10/TimesheetAgent.Foundry
 ```
 
 ```

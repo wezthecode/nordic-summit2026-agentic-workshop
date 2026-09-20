@@ -19,7 +19,10 @@ runtimes. The workshop is the comparison.
 │   └── shared-assets/    # Dataverse schema, shared prompts, sample data, eval scenarios
 └── reference-repo/      # The actual buildable artifacts the labs produce
     ├── low-code/          # Copilot Studio solution notes (lab 02)
-    ├── pro-code/          # .NET 8 Microsoft Agent Framework SDK build (lab 03)
+    ├── pro-code/          # Microsoft Agent Framework SDK build (lab 03)
+    │   ├── net10/           # Current — .NET 10, the active LTS. Use this one.
+    │   └── net8/             # Archived — matches the originally-advertised .NET 8. Same
+    │                          code, same fixes, older target framework. Not actively maintained.
     ├── eval/              # Evaluation harness (lab 05)
     └── docs/              # Setup guides and the real build history — read this if
                              something in lab 03 doesn't work the way you expect
@@ -33,12 +36,15 @@ runtimes. The workshop is the comparison.
 - **Low-code (lab 02):** Three Copilot Studio agents on the GitHub Copilot harness — an
   orchestrator plus a Calendar specialist (Work IQ Calendar MCP) and a Time-Entry specialist
   (Dataverse MCP) — wired together as connected agents.
-- **Pro-code (lab 03):** [`reference-repo/pro-code/TimesheetAgent.Foundry/`](reference-repo/pro-code/TimesheetAgent.Foundry/)
+- **Pro-code (lab 03):** [`reference-repo/pro-code/net10/TimesheetAgent.Foundry/`](reference-repo/pro-code/net10/TimesheetAgent.Foundry/)
   — the same three agents as Microsoft Agent Framework `ChatClientAgent` objects in a C# console
   app, calling the same two MCPs directly, backed by a Foundry-hosted model. Read
   [`reference-repo/docs/foundry-buildout-log.md`](reference-repo/docs/foundry-buildout-log.md)
   for the real story of getting this working — the auth model, the platform gotchas, and the
   bugs found and fixed along the way. It's better material than a clean writeup would have been.
+  Originally advertised as a .NET 8 build — if you specifically want that version, it's preserved
+  at [`reference-repo/pro-code/net8/TimesheetAgent.Foundry/`](reference-repo/pro-code/net8/TimesheetAgent.Foundry/),
+  identical code, just the older target framework.
 
 ## License
 
