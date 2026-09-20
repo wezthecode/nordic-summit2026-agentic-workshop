@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1.0",
+  "description": "Workshop evaluation set. Same scenarios run against the Copilot Studio build (lab 02) and the Microsoft Foundry build (lab 03). Used by both graders in ./graders/.",
+  "scenarios": [
+    {
+      "id": "happy-path-last-week",
+      "category": "happy_path",
+      "user_turn_1": "Log my time for last week.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-001", "date": "2026-09-14", "duration_hours": 1.5, "subject": "Sync with Northwind onboarding" },
+          { "event_id": "evt-002", "date": "2026-09-15", "duration_hours": 2.0, "subject": "Platform modernisation planning" },
+          { "event_id": "evt-003", "date": "2026-09-16", "duration_hours": 0.5, "subject": "Internal R&D check-in" }
+        ]
+      },
+      "user_confirms": true,
+      "expected_writes": [
+        { "cre_date": "2026-09-14", "cre_hours": 1.5,  "project_code": "PROJ-B", "cre_calendareventid": "evt-001" },
+        { "cre_date": "2026-09-15", "cre_hours": 2.0,  "project_code": "PROJ-C", "cre_calendareventid": "evt-002" },
+        { "cre_date": "2026-09-16", "cre_hours": 0.5,  "project_code": "PROJ-A", "cre_calendareventid": "evt-003" }
+      ]
+    },
+    {
+      "id": "user-rejects-draft",
+      "category": "happy_path",
+      "user_turn_1": "Log my time for last Monday.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-010", "date": "2026-09-14", "duration_hours": 1.0, "subject": "Sync with Northwind" }
+        ]
+      },
+      "user_confirms": false,
+      "expected_writes": []
+    },
+    {
+      "id": "user-corrects-project",
+      "category": "happy_path",
+      "user_turn_1": "Log my time for last Tuesday. The Northwind sync was actually about platform modernisation.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-020", "date": "2026-09-15", "duration_hours": 1.0, "subject": "Sync with Northwind" }
+        ]
+      },
+      "user_confirms": true,
+      "expected_writes": [
+        { "cre_date": "2026-09-15", "cre_hours": 1.0, "project_code": "PROJ-C", "cre_calendareventid": "evt-020" }
+      ]
+    },
+    {
+      "id": "empty-calendar-day",
+      "category": "edge_case",
+      "user_turn_1": "Log my time for last Saturday.",
+      "fixture": { "calendar_events": [] },
+      "user_confirms": true,
+      "expected_writes": [],
+      "expected_behaviour": "Agent must tell the user no events were found; must NOT invent entries."
+    },
+    {
+      "id": "duplicate-event-rejection",
+      "category": "edge_case",
+      "user_turn_1": "Log my time for last Monday again.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-001", "date": "2026-09-14", "duration_hours": 1.5, "subject": "Sync with Northwind onboarding" }
+        ],
+        "pre_existing_entries": [
+          { "cre_calendareventid": "evt-001" }
+        ]
+      },
+      "user_confirms": true,
+      "expected_writes": [],
+      "expected_behaviour": "Dataverse alternate-key violation. Agent must surface the duplicate to the user, NOT retry silently."
+    },
+    {
+      "id": "ambiguous-project-name",
+      "category": "edge_case",
+      "user_turn_1": "Log my time for last Wednesday.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-030", "date": "2026-09-16", "duration_hours": 1.0, "subject": "Project kickoff" }
+        ]
+      },
+      "user_confirms": false,
+      "expected_writes": [],
+      "expected_behaviour": "Agent must ask the user which project; must NOT guess."
+    },
+    {
+      "id": "future-date-rejected",
+      "category": "guardrail",
+      "user_turn_1": "Log 2 hours of PROJ-A for next Friday.",
+      "fixture": { "calendar_events": [] },
+      "user_confirms": true,
+      "expected_writes": [],
+      "expected_behaviour": "Dataverse business rule rejects future date. Agent must surface the error, not retry."
+    },
+    {
+      "id": "fractional-hours-rounded",
+      "category": "guardrail",
+      "user_turn_1": "Log my time for last Thursday.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-040", "date": "2026-09-17", "duration_hours": 0.78, "subject": "Internal R&D" }
+        ]
+      },
+      "user_confirms": true,
+      "expected_writes": [
+        { "cre_date": "2026-09-17", "cre_hours": 0.75, "project_code": "PROJ-A", "cre_calendareventid": "evt-040" }
+      ],
+      "expected_behaviour": "47-minute meeting must round to 0.75h, not 0.78."
+    },
+    {
+      "id": "vague-range-clarified",
+      "category": "conversation",
+      "user_turn_1": "Log my time.",
+      "fixture": { "calendar_events": [] },
+      "user_confirms": false,
+      "expected_writes": [],
+      "expected_behaviour": "Agent must ask for date range; must NOT assume."
+    },
+    {
+      "id": "weekend-not-logged",
+      "category": "guardrail",
+      "user_turn_1": "Log my time for last week including the weekend.",
+      "fixture": {
+        "calendar_events": [
+          { "event_id": "evt-050", "date": "2026-09-19", "duration_hours": 2.0, "subject": "Weekend hackathon" }
+        ]
+      },
+      "user_confirms": true,
+      "expected_writes": [
+        { "cre_date": "2026-09-19", "cre_hours": 2.0, "project_code": "PROJ-A", "cre_calendareventid": "evt-050" }
+      ],
+      "expected_behaviour": "User explicitly asked for weekend, so weekend event IS logged."
+    }
+  ]
+}

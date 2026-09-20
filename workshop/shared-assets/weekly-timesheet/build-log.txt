@@ -1,0 +1,51 @@
+▸ live progress: read "/Users/wesleynell/TechConWorkshop/nordic-summit-2026/workshop/shared-assets/weekly-timesheet/.maker-workspace/build-status.json" for the current step (or tail "/Users/wesleynell/TechConWorkshop/nordic-summit-2026/workshop/shared-assets/weekly-timesheet/.maker-workspace/build-log.jsonl").
+
+⚠ solution 'AgenticTimesheet' already exist(s) — this build will UPDATE the existing app (idempotent reuse), not create a fresh one. Use a different name for a new app.
+
+▶ solution
+  [1/28] ✓ solution AgenticTimesheet
+
+▶ data-model
+  [2/28] ⊘ table cre_project (exists — reuse)
+  [3/28] ⊘ column cre_project.cre_code (exists)
+  [4/28] ⊘ column cre_project.cre_isactive (exists)
+  [5/28] ⊘ required cre_project.cre_code (already ApplicationRequired)
+  [6/28] ⊘ required cre_project.cre_isactive (already ApplicationRequired)
+  [7/28] ✓ column capabilities cre_project.cre_isactive
+  [8/28] ⊘ table cre_timeentry (exists — reuse)
+  [9/28] ⊘ column cre_timeentry.cre_date (exists)
+  [10/28] ⊘ column cre_timeentry.cre_hours (exists)
+  [11/28] ⊘ column cre_timeentry.cre_description (exists)
+  [12/28] ⊘ column cre_timeentry.cre_source (exists)
+  [13/28] ⊘ column cre_timeentry.cre_calendareventid (exists)
+  [14/28] ⊘ required cre_timeentry.cre_date (already ApplicationRequired)
+  [15/28] ⊘ required cre_timeentry.cre_hours (already ApplicationRequired)
+  [16/28] ⊘ required cre_timeentry.cre_source (already ApplicationRequired)
+  [17/28] ⊘ alt key cre_timeentry.cre_uniquecalendarevent (exists)
+  [18/28] ⊘ relationship cre_project_cre_timeentry (exists)
+
+▶ views
+⚠ view 'Projects - Active' already exists — its columns and description were updated, but authored filters/sort are NOT reapplied to an existing view. Rename the view to author a separate one, or adjust its filters in Maker.
+  [19/28] ✓ view "My Time Entries - This Week"
+  [20/28] ✓ view "Projects - Active"
+  [21/28] ✓ enrich default views for cre_project
+  [22/28] ✓ enrich default views for cre_timeentry
+
+▶ forms
+  [24/28] ✓ form "Project"
+  [23/28] ✓ form "Time Entry"
+
+▶ app-shell
+  [25/28] ✓ app icon (generated) cre_weeklytimesheet_icon
+  [26/28] ✓ app "Weekly Timesheet"
+
+▶ pages
+  [27/28] ⊘ finalize sitemap (genpage subareas) (fresh page-less app — sitemap written on create)
+
+▶ security
+  [28/28] ✓ security role "Timesheet User"
+
+✓ build complete — 11 created, 17 skipped, 0 failed (28 steps)
+
+✓ verify PASS (29/29 present)
+{"ok":true,"created":{"entities":{"cre_project":{"logicalName":"cre_project","entitySetName":"cre_projects"},"cre_timeentry":{"logicalName":"cre_timeentry","entitySetName":"cre_timeentries"}},"relationships":{},"records":{},"webResources":{"cre_weeklytimesheet_icon":"781fde85-68b4-f111-aaae-70a8a5b10059"},"views":{"cre_timeentry|My Time Entries - This Week":"b5d71f6a-2794-4572-b7e4-b7b5137f505c","cre_project|Projects - Active":"8ae717b4-8872-4149-bc14-3ff04c545bf4"},"charts":{},"forms":{"cre_timeentry":"a4691d86-0480-4c95-a116-c8c8ca01aa95","cre_project":"b598be8f-e060-455d-a70a-5f4976db1791"},"formIds":{"cre_timeentry|Main|Time Entry":"a4691d86-0480-4c95-a116-c8c8ca01aa95","cre_project|Main|Project":"b598be8f-e060-455d-a70a-5f4976db1791"},"businessRules":{},"businessProcessFlows":{},"bpfBackingTables":{},"commands":{},"dashboards":{},"pages":{},"pageDeployedShas":{},"ai":{"appFeatures":null,"summaries":{}},"roles":{"Timesheet User":{"roleId":"6993ada1-68b4-f111-aaae-70a8a5b10059","name":"Timesheet User","reused":false,"appliedPrivileges":[{"entity":"cre_timeentry","privilegeName":"prvCreatecre_timeentry","privilegeType":"Create","scope":"user"},{"entity":"cre_timeentry","privilegeName":"prvReadcre_timeentry","privilegeType":"Read","scope":"user"},{"entity":"cre_timeentry","privilegeName":"prvWritecre_timeentry","privilegeType":"Write","scope":"user"},{"entity":"cre_timeentry","privilegeName":"prvDeletecre_timeentry","privilegeType":"Delete","scope":"user"},{"entity":"cre_timeentry","privilegeName":"prvAppendcre_timeentry","privilegeType":"Append","scope":"user"},{"entity":"cre_timeentry","privilegeName":"prvAppendTocre_timeentry","privilegeType":"AppendTo","scope":"user"},{"entity":"cre_project","privilegeName":"prvReadcre_project","privilegeType":"Read","scope":"organization"},{"entity":"cre_project","privilegeName":"prvAppendTocre_project","privilegeType":"AppendTo","scope":"organization"},{"entity":"appmodule","privilegeName":"prvReadAppModule","privilegeType":"Read","scope":"organization"}],"assignedTeams":[],"assignedUsers":[]}},"roleGrants":{},"bpfRoleGrants":{},"app":"57756ceb-302f-442f-9532-64da060894c9","defaultForms":{"cre_timeentry":"a4691d86-0480-4c95-a116-c8c8ca01aa95","cre_project":"b598be8f-e060-455d-a70a-5f4976db1791"}},"skipped":{"businessRules":[],"aiSummaries":[]},"verify":{"ok":true,"present":29,"total":29,"missing":[]}}

@@ -1,0 +1,13 @@
+# OS/editor cruft
+.DS_Store
+.vs/
+.vscode/
+*.swp
+
+# .NET build output (also covered by reference-repo/.gitignore, kept here for anything at root)
+bin/
+obj/
+*.user
+
+# User secrets are never committed — see reference-repo/docs for local setup instead
+**/secrets.json
