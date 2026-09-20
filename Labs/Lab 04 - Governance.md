@@ -36,14 +36,14 @@ We build this on a whiteboard / flipchart together. Each row is filled from real
 
 > **Diagnostic key used during the discussion:** the `cre_source` column in `cre_timeentry`. We can query rows tagged `Copilot Studio agent` vs `Foundry agent` and look at the actual write rate, the failure rate, and the lock-step on duplicate-key handling.
 
-## Facilitation script
+## How this module runs
 
-1. **5 min — open Power Platform admin centre + Foundry portal side by side.** Show the audit log surfaces. Note what each *does* and *doesn't* capture.
-2. **5 min — show a prompt change in both runtimes.** Edit a line of `orchestrator.system.md` in `Labs/prompts/`. Walk through how that change flows into each runtime. (Copilot Studio: copy-paste, re-publish. Foundry: edit file, `git commit`, redeploy.) Time both, write the seconds on the board.
-3. **15 min — fill the table.** Attendees call out the cells; I write. If two attendees disagree, the disagreement *is* the answer for that row.
-4. **5 min — the question I want them to take home.**
+1. **5 min — compare the audit surfaces.** Look at Power Platform admin center and the Foundry portal side by side. Note what each one *does* and *doesn't* capture.
+2. **5 min — trace a prompt change through both runtimes.** Edit a line of `orchestrator.system.md` in `Labs/prompts/`. Walk through how that change reaches each runtime — Copilot Studio: copy-paste, re-publish; Foundry: edit the file, `git commit`, redeploy. Time both, note the seconds.
+3. **15 min — fill in the table as a group.** Call out what you found for each cell from your own labs 02/03 runs. Where people disagree, that disagreement *is* the answer for that row — write both.
+4. **5 min — the question to leave with.**
 
-## The question I want them to take home
+## The question to leave with
 
 Not "which is better." That's the wrong question.
 

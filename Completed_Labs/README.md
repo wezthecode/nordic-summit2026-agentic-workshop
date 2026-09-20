@@ -15,4 +15,8 @@ or skip straight to inspecting a finished build, it's here.
   - `dataverse-mcp-custom-client.md` — the one-time Entra setup lab 03 needs before it runs in
     your own tenant
 - **`low-code/`** — notes on the Copilot Studio solution structure.
-- **`eval/`** — the evaluation harness from lab 05, plus `scenarios.json` and the grading rubrics.
+- **`eval/`** — the real scenario set (`scenarios.json`, 10 scenarios) and both complete grading
+  rubrics (`graders/`) used in lab 05. The automated CLI harness that would run all of this
+  unattended against both runtimes isn't built — lab 05 is a manual, by-hand grading exercise
+  instead. `Program.cs` sketches the intended command surface if you want to build the automation
+  yourself afterwards.
