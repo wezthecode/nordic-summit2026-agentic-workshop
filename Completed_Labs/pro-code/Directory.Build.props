@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <!-- Boundary file: MSBuild auto-imports the nearest Directory.Build.props found by walking up
+       from each project. Without this, projects under Completed_Labs/pro-code/ pick up ~/Directory.Build.props
+       (a private day-job build config — TreatWarningsAsErrors in Release, a proprietary
+       DataverseAnalyzer package reference) purely because this repo lives under the home directory.
+       This file stops that walk here, so the workshop reference repo builds the same way for every
+       attendee regardless of what's on the presenter's machine. -->
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

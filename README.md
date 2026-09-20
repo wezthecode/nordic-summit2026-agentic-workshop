@@ -1,50 +1,33 @@
 # Nordic Summit 2026 — Agentic Timesheet Workshop
 
-**Build the Same Multi-Agent System Twice — Copilot Studio AND Microsoft Agent Framework SDK — in 4 Hours**
+Everything you need to complete the **Build the Same Multi-Agent System Twice** workshop lab exercises.
 
-Half-day, hands-on workshop for Nordic Summit 2026 (Billund, Denmark). Same scenario — "log my
-time for this week" — built twice: once low-code in Microsoft Copilot Studio, once pro-code in
-C# with the Microsoft Agent Framework SDK on Microsoft Foundry. Same Dataverse data model, same
-first-party MCP servers (Dataverse MCP, Work IQ Calendar MCP), same system prompts, two different
-runtimes. The workshop is the comparison.
+👉 [Lab Prerequisites](<Labs/Lab Prerequisites.md>)
 
-## What's in this repo
+## Lab instructions
 
-```
-.
-├── workshop/            # Everything used on the day — start here if you're attending
-│   ├── labs/             # 6 hands-on modules, lab-00 through lab-05
-│   ├── attendee-prep/    # Read this before you arrive
-│   ├── facilitator/      # Run-of-show, timings
-│   └── shared-assets/    # Dataverse schema, shared prompts, sample data, eval scenarios
-└── reference-repo/      # The actual buildable artifacts the labs produce
-    ├── low-code/          # Copilot Studio solution notes (lab 02)
-    ├── pro-code/          # Microsoft Agent Framework SDK build (lab 03)
-    │   ├── net10/           # Current — .NET 10, the active LTS. Use this one.
-    │   └── net8/             # Archived — matches the originally-advertised .NET 8. Same
-    │                          code, same fixes, older target framework. Not actively maintained.
-    ├── eval/              # Evaluation harness (lab 05)
-    └── docs/              # Setup guides and the real build history — read this if
-                             something in lab 03 doesn't work the way you expect
-```
+👉 [Lab 00 - Environment Setup](<Labs/Lab 00 - Environment Setup.md>)
+👉 [Lab 01 - Dataverse Foundation](<Labs/Lab 01 - Dataverse Foundation.md>)
+👉 [Lab 02 - Copilot Studio Build](<Labs/Lab 02 - Copilot Studio Build.md>)
+👉 [Lab 03 - Foundry Build](<Labs/Lab 03 - Foundry Build.md>)
+👉 [Lab 04 - Governance](<Labs/Lab 04 - Governance.md>)
+👉 [Lab 05 - Evaluation](<Labs/Lab 05 - Evaluation.md>)
 
-**Start here:** [`workshop/README.md`](workshop/README.md) for the full module map, then
-[`workshop/labs/lab-00-environment-setup/`](workshop/labs/lab-00-environment-setup/) to begin.
+Also in `Labs/`: the system prompts (`prompts/`) you paste into Copilot Studio during lab 02, the
+Dataverse schema spec (`dataverse-schema.md`) lab 01 builds from, and two draft agent skills
+(`skills/`).
 
-## The two builds
+## Workshop starter solution
 
-- **Low-code (lab 02):** Three Copilot Studio agents on the GitHub Copilot harness — an
-  orchestrator plus a Calendar specialist (Work IQ Calendar MCP) and a Time-Entry specialist
-  (Dataverse MCP) — wired together as connected agents.
-- **Pro-code (lab 03):** [`reference-repo/pro-code/net10/TimesheetAgent.Foundry/`](reference-repo/pro-code/net10/TimesheetAgent.Foundry/)
-  — the same three agents as Microsoft Agent Framework `ChatClientAgent` objects in a C# console
-  app, calling the same two MCPs directly, backed by a Foundry-hosted model. Read
-  [`reference-repo/docs/foundry-buildout-log.md`](reference-repo/docs/foundry-buildout-log.md)
-  for the real story of getting this working — the auth model, the platform gotchas, and the
-  bugs found and fixed along the way. It's better material than a clean writeup would have been.
-  Originally advertised as a .NET 8 build — if you specifically want that version, it's preserved
-  at [`reference-repo/pro-code/net8/TimesheetAgent.Foundry/`](reference-repo/pro-code/net8/TimesheetAgent.Foundry/),
-  identical code, just the older target framework.
+📦 [Workshop Starter Solution](WorkshopStarterSolution/) — seed data you'll need loaded before
+testing (`projects.csv`).
+
+## Completed labs
+
+If you fall behind or want to check your work against a working answer:
+
+📦 [Completed Labs](Completed_Labs/) — the built Dataverse solution, the Copilot Studio agents
+solution, the combined solution, and both the .NET 10 and .NET 8 pro-code builds.
 
 ## License
 
